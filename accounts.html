@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounts & Portfolio - FinSight</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="logo">
+        <a href="index.html"><img src="logo.svg" alt="FinSight logo" class="logo-img"></a>
+      </div>
+
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-item">
+          <span class="nav-icon">📊</span>
+          <span class="nav-label">Dashboard</span>
+          <span class="nav-badge active-badge">Live</span>
+        </a>
+        <a href="transactions.html" class="nav-item">
+          <span class="nav-icon">💸</span>
+          <span class="nav-label">Transactions</span>
+          <span class="nav-badge">14</span>
+        </a>
+        <a href="accounts.html" class="nav-item active">
+          <span class="nav-icon">🏦</span>
+          <span class="nav-label">Accounts</span>
+          <span class="nav-badge" id="accountsNavBadge">3</span>
+        </a>
+        <a href="goals.html" class="nav-item">
+          <span class="nav-icon">🎯</span>
+          <span class="nav-label">Goals</span>
+          <span class="nav-badge" id="goalsNavBadge">4</span>
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <span class="nav-icon">📈</span>
+          <span class="nav-label">Analytics</span>
+          <span class="nav-badge pro-badge">Pro</span>
+        </a>
+        <a href="insights.html" class="nav-item">
+          <span class="nav-icon">💡</span>
+          <span class="nav-label">Smart Insights</span>
+          <span class="nav-badge-alert">3 New</span>
+        </a>
+      </nav>
+
+      <!-- Upcoming Features Section -->
+      <div class="sidebar-section">
+        <div class="sidebar-section-header">
+          <span class="section-title">Upcoming Features</span>
+          <span class="section-badge">Labs</span>
+        </div>
+        <div class="upcoming-menu">
+          <a href="bill-scanner.html" class="upcoming-item" title="Smart OCR receipt and invoice scanner">
+            <div class="upcoming-main">
+              <span class="upcoming-icon">🧾</span>
+              <div>
+                <span class="upcoming-label">Bill Scanner</span>
+                <span class="upcoming-sub">OCR Auto-Import</span>
+              </div>
+            </div>
+            <span class="upcoming-status-tag">Q4 Beta</span>
+          </a>
+
+          <a href="auto-categorisation.html" class="upcoming-item" title="AI automated merchant and expense categorisation">
+            <div class="upcoming-main">
+              <span class="upcoming-icon">🪄</span>
+              <div>
+                <span class="upcoming-label">Auto Categorisation</span>
+                <span class="upcoming-sub">ML Tag Engine</span>
+              </div>
+            </div>
+            <span class="upcoming-status-tag">In Dev</span>
+          </a>
+
+          <a href="payments-integration.html" class="upcoming-item" title="Instant sync with UPI, Google Pay & PhonePe">
+            <div class="upcoming-main">
+              <span class="upcoming-icon">⚡</span>
+              <div>
+                <span class="upcoming-label">Integration with Payments App</span>
+                <span class="upcoming-sub">UPI & GPay Sync</span>
+              </div>
+            </div>
+            <span class="upcoming-status-tag">Soon</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- User Profile Box -->
+      <div class="user-box">
+        <div class="avatar">NT</div>
+        <div class="user-info">
+          <span class="user-name">Nikhil Tyagi</span>
+          <span class="user-status">Pro Member • HDFC & ICICI</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- Header -->
+      <header class="top-bar">
+        <div>
+          <h1>Accounts & Portfolios</h1>
+          <p class="subtitle">Consolidated view of liquid reserves, demat holdings, and credit limits</p>
+        </div>
+        <div class="top-actions">
+          <button class="btn btn-secondary" id="transferBtn">
+            <span class="btn-icon">🔁</span>
+            <span>Transfer Funds</span>
+          </button>
+          <button class="btn btn-primary" id="linkAccountBtn">
+            <span class="btn-icon">+</span>
+            <span>Link Account</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Account Summary KPI Cards -->
+      <section class="cards-grid" aria-label="Consolidated Balances">
+        <div class="card card-purple" id="kpiCardLiquid">
+          <div class="card-header-row">
+            <span class="card-label">Total Liquid Cash</span>
+            <span class="card-icon-pill">🏦</span>
+          </div>
+          <p class="card-value" id="kpiLiquidCash">₹4,29,500</p>
+          <div class="card-footer-row">
+            <span class="card-change positive" id="kpiLiquidSubtitle">Across 2 bank accounts</span>
+          </div>
+          <span class="card-subtext" id="kpiLiquidSubtext">HDFC Salary + ICICI Reserve</span>
+        </div>
+
+        <div class="card card-teal" id="kpiCardInvestments">
+          <div class="card-header-row">
+            <span class="card-label">Investment Portfolio</span>
+            <span class="card-icon-pill">📈</span>
+          </div>
+          <p class="card-value" id="kpiInvestments">₹4,12,800</p>
+          <div class="card-footer-row">
+            <span class="card-change positive" id="kpiInvestmentsSubtitle">▲ +18.4% all-time gain</span>
+          </div>
+          <span class="card-subtext" id="kpiInvestmentsSubtext">Zerodha Demat • 3 active SIPs</span>
+        </div>
+
+        <div class="card card-pink" id="kpiCardCredit">
+          <div class="card-header-row">
+            <span class="card-label">Credit Card Dues</span>
+            <span class="card-icon-pill">💳</span>
+          </div>
+          <p class="card-value" id="kpiCreditDues">₹18,410</p>
+          <div class="card-footer-row">
+            <span class="card-change neutral" id="kpiCreditSubtitle">Due on 12 Oct</span>
+          </div>
+          <span class="card-subtext" id="kpiCreditSubtext">HDFC Regalia Gold (Limit: ₹4.0L)</span>
+        </div>
+
+        <div class="card card-orange" id="kpiCardNetWorth">
+          <div class="card-header-row">
+            <span class="card-label">Net Asset Worth</span>
+            <span class="card-icon-pill">🛡️</span>
+          </div>
+          <p class="card-value" id="kpiNetWorth">₹8,42,300</p>
+          <div class="card-footer-row">
+            <span class="card-change positive" id="kpiNetWorthSubtitle">▲ 3.2% this month</span>
+          </div>
+          <span class="card-subtext" id="kpiNetWorthSubtext">Assets: ₹8.6L • Debt: ₹18.4k</span>
+        </div>
+      </section>
+
+      <!-- Visual Account Cards Grid -->
+      <section class="account-cards-section">
+        <div class="section-title-row">
+          <h2>Linked Accounts & Cards</h2>
+          <span class="security-badge">🔒 256-Bit Bank Grade Sync</span>
+        </div>
+
+        <div class="accounts-grid" id="accountsGrid">
+          <!-- Card 1: HDFC Bank -->
+          <div class="bank-card card-hdfc" data-id="hdfc-salary">
+            <div class="bank-card-top">
+              <div class="bank-brand">
+                <span class="bank-logo-text">HDFC BANK</span>
+                <span class="bank-acc-type">Corporate Salary Account</span>
+              </div>
+              <span class="sync-status-indicator live" title="Live Auto-Sync Active">● Live Sync</span>
+            </div>
+            <div class="bank-card-number">•••• •••• •••• 8831</div>
+            <div class="bank-card-bottom">
+              <div>
+                <span class="bank-label">Available Balance</span>
+                <p class="bank-balance">₹2,84,500.00</p>
+              </div>
+              <div class="bank-chip"></div>
+            </div>
+            <div class="bank-card-footer">
+              <span>Primary Operating A/c</span>
+              <span class="copyable-code" title="Click to copy IFSC">IFSC: HDFC0001241</span>
+            </div>
+          </div>
+
+          <!-- Card 2: ICICI Bank -->
+          <div class="bank-card card-icici" data-id="icici-privilege">
+            <div class="bank-card-top">
+              <div class="bank-brand">
+                <span class="bank-logo-text">ICICI BANK</span>
+                <span class="bank-acc-type">iMobile Privilege Savings</span>
+              </div>
+              <span class="sync-status-indicator live" title="Live Auto-Sync Active">● Live Sync</span>
+            </div>
+            <div class="bank-card-number">•••• •••• •••• 4109</div>
+            <div class="bank-card-bottom">
+              <div>
+                <span class="bank-label">Available Balance</span>
+                <p class="bank-balance">₹1,45,000.00</p>
+              </div>
+              <div class="bank-chip"></div>
+            </div>
+            <div class="bank-card-footer">
+              <span>Auto-Sweep Enabled (6.8%)</span>
+              <span class="copyable-code" title="Click to copy IFSC">IFSC: ICIC0000842</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Zerodha -->
+          <div class="bank-card card-zerodha" data-id="zerodha-demat">
+            <div class="bank-card-top">
+              <div class="bank-brand">
+                <span class="bank-logo-text">ZERODHA</span>
+                <span class="bank-acc-type">Demat & Mutual Funds</span>
+              </div>
+              <span class="sync-status-indicator live" title="Live Auto-Sync Active">● Synced</span>
+            </div>
+            <div class="bank-card-number">UCC: NT9021 • CDSL</div>
+            <div class="bank-card-bottom">
+              <div>
+                <span class="bank-label">Portfolio Valuation</span>
+                <p class="bank-balance">₹4,12,800.00</p>
+              </div>
+              <div class="demat-badge">+18.4% Return</div>
+            </div>
+            <div class="bank-card-footer">
+              <span>3 Active SIPs (₹10k/mo)</span>
+              <span class="copyable-code" title="Click to copy UCC">Nifty 50, Flexi, Midcap</span>
+            </div>
+          </div>
+
+          <!-- Card 4: HDFC Regalia Credit Card -->
+          <div class="bank-card card-regalia" data-id="hdfc-regalia">
+            <div class="bank-card-top">
+              <div class="bank-brand">
+                <span class="bank-logo-text">HDFC REGALIA GOLD</span>
+                <span class="bank-acc-type">Visa Signature Credit Card</span>
+              </div>
+              <span class="sync-status-indicator card-alert">Bill Due in 27d</span>
+            </div>
+            <div class="bank-card-number">•••• •••• •••• 6022</div>
+            <div class="bank-card-bottom">
+              <div>
+                <span class="bank-label">Current Unbilled Spend</span>
+                <p class="bank-balance">₹18,410.00</p>
+              </div>
+              <span class="card-limit-info">Limit: ₹4,00,000</span>
+            </div>
+            <div class="bank-card-footer">
+              <span>Available Limit: ₹3,81,590</span>
+              <span class="copyable-code" title="Click to copy">Points: 14,200 pts</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Transfer & Asset Distribution Section -->
+      <section class="bottom-grid">
+
+        <!-- Quick Transfer Tool -->
+        <div class="transactions-box" id="transferCardBox">
+          <div class="box-header">
+            <div>
+              <h2>Instant Inter-Account Transfer</h2>
+              <p class="box-subtitle">Seamlessly reallocate liquidity between linked bank accounts</p>
+            </div>
+          </div>
+
+          <form id="transferForm" class="quick-transfer-form">
+            <div class="form-row">
+              <div class="form-group half">
+                <label for="transferFrom">From Account</label>
+                <select id="transferFrom" required>
+                  <option value="hdfc-salary">HDFC Salary A/c (₹2,84,500)</option>
+                  <option value="icici-privilege">ICICI Savings A/c (₹1,45,000)</option>
+                </select>
+                <span class="transfer-hint" id="fromAccountHint">Available: ₹2,84,500.00</span>
+              </div>
+              <div class="form-group half">
+                <label for="transferTo">To Account</label>
+                <select id="transferTo" required>
+                  <option value="icici-privilege">ICICI Savings A/c (₹1,45,000)</option>
+                  <option value="hdfc-salary">HDFC Salary A/c (₹2,84,500)</option>
+                  <option value="zerodha-demat">Zerodha Trading Wallet (₹4,12,800)</option>
+                  <option value="hdfc-regalia">HDFC Regalia Gold (Pay Dues)</option>
+                </select>
+                <span class="transfer-hint" id="toAccountHint">Direct instant transfer</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-label-row">
+                <label for="transferAmount">Transfer Amount (₹)</label>
+                <div class="quick-presets">
+                  <button type="button" class="preset-chip" data-amount="5000">+₹5k</button>
+                  <button type="button" class="preset-chip" data-amount="10000">+₹10k</button>
+                  <button type="button" class="preset-chip" data-amount="25000">+₹25k</button>
+                  <button type="button" class="preset-chip" data-preset="max">Max</button>
+                </div>
+              </div>
+              <input type="number" id="transferAmount" placeholder="e.g. 25000" min="500" required>
+            </div>
+
+            <button type="submit" id="transferSubmitBtn" class="btn btn-primary transfer-submit-btn">
+              <span>🔁 Execute Transfer</span>
+            </button>
+          </form>
+
+          <!-- Transfer Activity History -->
+          <div class="transfer-history-wrap">
+            <div class="transfer-history-header">
+              <span class="transfer-history-title">Recent Inter-Account Activity</span>
+              <button type="button" class="btn-text-sm" id="clearTransfersBtn">Clear Log</button>
+            </div>
+            <div class="transfer-history-list" id="transferHistoryList">
+              <!-- Populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Asset Distribution Allocation -->
+        <div class="budget-box">
+          <div class="budget-header">
+            <div>
+              <h3>Portfolio Allocation</h3>
+              <p class="budget-subtitle">Target asset diversification</p>
+            </div>
+            <span class="budget-overall-tag" id="allocationTag">Optimal Balance</span>
+          </div>
+
+          <div class="budget-items-list">
+            <div class="budget-item">
+              <div class="budget-info">
+                <span class="budget-name">💼 Equity & Mutual Funds</span>
+                <span class="budget-numbers" id="allocEquityNumbers">₹4,12,800 (49%)</span>
+              </div>
+              <div class="budget-progress-bg">
+                <div class="budget-progress-bar bar-teal" id="allocEquityBar" style="width: 49%;"></div>
+              </div>
+            </div>
+
+            <div class="budget-item">
+              <div class="budget-info">
+                <span class="budget-name">🏦 Liquid Bank Reserves</span>
+                <span class="budget-numbers" id="allocLiquidNumbers">₹4,29,500 (51%)</span>
+              </div>
+              <div class="budget-progress-bg">
+                <div class="budget-progress-bar bar-purple" id="allocLiquidBar" style="width: 51%;"></div>
+              </div>
+            </div>
+
+            <div class="budget-item">
+              <div class="budget-info">
+                <span class="budget-name">💳 Credit Utilization</span>
+                <span class="budget-numbers success-text" id="allocCreditNumbers">4.6% of ₹4.0L limit</span>
+              </div>
+              <div class="budget-progress-bg">
+                <div class="budget-progress-bar bar-amber" id="allocCreditBar" style="width: 4.6%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Modal: Link Account -->
+  <div class="modal-overlay" id="linkAccountModal" role="dialog" aria-modal="true" aria-labelledby="linkAccountModalTitle">
+    <div class="modal-backdrop" id="linkModalBackdrop" aria-label="Close dialog"></div>
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="linkAccountModalTitle">🏦 Link New Account or Card</h3>
+        <button class="modal-close" id="closeLinkModalBtn" aria-label="Close dialog" type="button">&times;</button>
+      </div>
+      <form id="linkAccountForm">
+        <div class="form-group">
+          <label for="accType">Account Category</label>
+          <select id="accType" required>
+            <option value="bank">Bank Account (Savings / Salary)</option>
+            <option value="demat">Investment & Demat (Stocks / SIP)</option>
+            <option value="credit">Credit Card</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group half">
+            <label for="accBank">Institution / Provider</label>
+            <select id="accBank" required>
+              <option value="HDFC">HDFC Bank</option>
+              <option value="ICICI">ICICI Bank</option>
+              <option value="SBI">State Bank of India</option>
+              <option value="Axis">Axis Bank</option>
+              <option value="Kotak">Kotak Mahindra Bank</option>
+              <option value="Zerodha">Zerodha</option>
+              <option value="Groww">Groww</option>
+              <option value="Other">Other Institution</option>
+            </select>
+          </div>
+          <div class="form-group half">
+            <label for="accSubtype">Account Description</label>
+            <input type="text" id="accSubtype" placeholder="e.g. Salary / Advantage Savings" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group half">
+            <label for="accNumber">Account / Card Number</label>
+            <input type="text" id="accNumber" placeholder="e.g. Last 4 digits (9024)" maxlength="20" required>
+          </div>
+          <div class="form-group half">
+            <label for="accBalance" id="accBalanceLabel">Current Balance (₹)</label>
+            <input type="number" id="accBalance" placeholder="e.g. 50000" min="0" required>
+          </div>
+        </div>
+        <div class="form-group" id="accIdentifierGroup">
+          <label for="accIdentifier" id="accIdentifierLabel">IFSC Code or Identifier</label>
+          <input type="text" id="accIdentifier" placeholder="e.g. SBIN0001234 or CDSL UCC">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" id="cancelLinkModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Link Account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="accountsToast" class="dashboard-toast" role="status" aria-live="polite"></div>
+
+  <!-- FinSight Scripts -->
+  <script src="js/core.js" defer></script>
+  <script src="js/accounts.js" defer></script>
+
+</body>
+</html>
